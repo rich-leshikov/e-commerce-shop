@@ -1,3 +1,4 @@
+'use client'
 import { useLang } from '@/hooks'
 
 export const Header = () => {

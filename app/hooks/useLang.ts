@@ -1,3 +1,4 @@
+'use client'
 import { useUnit } from 'effector-react'
 import { $lang } from '@/context'
 import translationsJson from '../public/translations/translations.json'
