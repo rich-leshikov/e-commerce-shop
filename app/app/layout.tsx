@@ -4,6 +4,7 @@ import { Layout } from '@/components'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import './global-styles/globals.css'
+import './global-styles/header.css'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
