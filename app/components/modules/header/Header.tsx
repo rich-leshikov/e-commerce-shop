@@ -1,6 +1,7 @@
 'use client'
 import { useLang } from '@/hooks'
 import { Logo } from '@/components'
+import Link from 'next/link'
 
 export const Header = () => {
   const { lang, translations } = useLang()
@@ -14,6 +15,35 @@ export const Header = () => {
         <div className='header__logo'>
           <Logo />
         </div>
+        <ul className='header__links list-reset'>
+          <li className='header__links__item'>
+            <button className='btn-reset header__links__item__btn header__links__item__btn--search' />
+          </li>
+          <li className='header__links__item'>
+            <Link
+              className='header__links__item__btn header__links__item__btn--favorites'
+              href='/favorites'
+            />
+          </li>
+          <li className='header__links__item'>
+            <Link
+              className='header__links__item__btn header__links__item__btn--compare'
+              href='/compare'
+            />
+          </li>
+          <li className='header__links__item'>
+            <Link
+              className='header__links__item__btn header__links__item__btn--cart'
+              href='/cart'
+            />
+          </li>
+          <li className='header__links__item header__links__item--profile'>
+            <Link
+              className='header__links__item__btn header__links__item__btn--profile'
+              href='/profile'
+            />
+          </li>
+        </ul>
       </div>
     </header>
   )
