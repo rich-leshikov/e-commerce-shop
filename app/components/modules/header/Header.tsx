@@ -1,7 +1,7 @@
 'use client'
-import { useLang } from '@/hooks'
-import { Logo } from '@/components'
 import Link from 'next/link'
+import { Logo, Menu } from '@/components'
+import { useLang } from '@/hooks'
 
 export const Header = () => {
   const { lang, translations } = useLang()
@@ -12,6 +12,7 @@ export const Header = () => {
         <button className='btn-reset header__burger'>
           {translations[lang].header.menu_btn}
         </button>
+        <Menu />
         <div className='header__logo'>
           <Logo />
         </div>
