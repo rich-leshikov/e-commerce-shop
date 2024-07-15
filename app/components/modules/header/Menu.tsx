@@ -28,6 +28,12 @@ export const Menu = () => {
 
   return (
     <nav className={`nav-menu ${menuIsOpen ? 'open' : 'close'}`}>
+      <div className='container nav-menu__container' />
+      <img
+        src='/img/menu-bg.png'
+        alt='menu backgroud'
+        className={`nav-menu__bg ${menuIsOpen ? 'open' : ''}`}
+      />
       <button
         className={`btn-reset nav-menu__close ${menuIsOpen ? 'open' : ''}`}
         onClick={handleCloseMenu}
