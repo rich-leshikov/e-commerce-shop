@@ -1,15 +1,22 @@
 'use client'
 import Link from 'next/link'
 import { Logo, Menu } from '@/components'
+import { openMenu } from '@/context'
 import { useLang } from '@/hooks'
+import { addOverflowHiddenToBody } from '@/lib'
 
 export const Header = () => {
   const { lang, translations } = useLang()
 
+  const handleOpenMenu = () => {
+    addOverflowHiddenToBody()
+    openMenu()
+  }
+
   return (
     <header className='header'>
       <div className='container header__container'>
-        <button className='btn-reset header__burger'>
+        <button className='btn-reset header__burger' onClick={handleOpenMenu}>
           {translations[lang].header.menu_btn}
         </button>
         <Menu />
