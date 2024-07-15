@@ -5,6 +5,7 @@ import { useLang } from '@/hooks'
 import { AllowedLangs } from '@/constants'
 import { $menuIsOpen, closeMenu, setLang } from '@/context'
 import { removeOverflowHiddenFromBody } from '@/lib'
+import { Logo } from '@/components'
 
 export const Menu = () => {
   const [showCatalogList, setShowCatalogList] = useState(false)
@@ -29,6 +30,9 @@ export const Menu = () => {
   return (
     <nav className={`nav-menu ${menuIsOpen ? 'open' : 'close'}`}>
       <div className='container nav-menu__container' />
+      <div className={`nav-menu__logo ${menuIsOpen ? 'open' : 'close'}`}>
+        <Logo />
+      </div>
       <img
         src='/img/menu-bg.png'
         alt='menu backgroud'
