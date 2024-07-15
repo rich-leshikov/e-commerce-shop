@@ -2,7 +2,8 @@
 import { useState } from 'react'
 import { useUnit } from 'effector-react'
 import { useLang } from '@/hooks'
-import { $menuIsOpen, closeMenu } from '@/context'
+import { AllowedLangs } from '@/constants'
+import { $menuIsOpen, closeMenu, setLang } from '@/context'
 import { removeOverflowHiddenFromBody } from '@/lib'
 
 export const Menu = () => {
@@ -11,6 +12,14 @@ export const Menu = () => {
   const [showContactsList, setShowContactsList] = useState(false)
   const menuIsOpen = useUnit($menuIsOpen)
   const { lang, translations } = useLang()
+
+  const handleSwitchLang = (lang: string) => {
+    setLang(lang as AllowedLangs)
+    localStorage.setItem('lang', JSON.stringify(lang))
+  }
+
+  const handleSwitchLangToRu = () => handleSwitchLang('ru')
+  const handleSwitchLangToEn = () => handleSwitchLang('en')
 
   const handleCloseMenu = () => {
     removeOverflowHiddenFromBody()
@@ -23,7 +32,20 @@ export const Menu = () => {
         className={`btn-reset nav-menu__close ${menuIsOpen ? 'open' : ''}`}
         onClick={handleCloseMenu}
       />
-      <h1>Menu</h1>
+      <div className={`nav-menu__lang ${menuIsOpen ? 'open' : ''}`}>
+        <button
+          className={`btn-reset nav-menu__lang__btn ${lang === 'ru' ? 'lang-active' : ''}`}
+          onClick={handleSwitchLangToRu}
+        >
+          RU
+        </button>
+        <button
+          className={`btn-reset nav-menu__lang__btn ${lang === 'en' ? 'lang-active' : ''}`}
+          onClick={handleSwitchLangToEn}
+        >
+          EN
+        </button>
+      </div>
     </nav>
   )
 }
