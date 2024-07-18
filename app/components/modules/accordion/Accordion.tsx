@@ -1,3 +1,4 @@
+'use client'
 import { FC, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { IAccordionProps } from '@/types'
