@@ -135,7 +135,7 @@ export const Menu = () => {
           <Logo />
         </div>
         <img
-          src='/img/menu-bg.png'
+          src={`/img/menu-bg${isMedia800 ? '-small' : ''}.png`}
           alt='menu backgroud'
           className={`nav-menu__bg ${menuIsOpen ? 'open' : ''}`}
         />
