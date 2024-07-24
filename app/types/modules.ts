@@ -17,3 +17,9 @@ export interface IMenuLinkItemProps {
   item: TMenuLinkItemType
   handleRedirectToCatalog: (arg0: string) => void
 }
+
+export interface ICatalogMenuButtonProps {
+  name: string
+  isActive: boolean
+  handler: VoidFunction
+}
