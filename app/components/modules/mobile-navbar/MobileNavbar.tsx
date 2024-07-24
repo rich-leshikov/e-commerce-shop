@@ -15,7 +15,7 @@ export const MobileNavbar = () => {
   const { lang, translations } = useLang()
 
   const handleOpenMenu = () => {
-    addOverflowHiddenToBody()
+    addOverflowHiddenToBody('0')
     openMenu()
     closeCatalogMenu()
   }
