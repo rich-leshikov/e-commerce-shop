@@ -3,9 +3,10 @@ import { useState } from 'react'
 import { useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { $catalogMenuIsOpen, closeCatalogMenu } from '@/context'
-import { useLang, useMenuAnimation } from '@/hooks'
+import { useLang, useMediaQuery, useMenuAnimation } from '@/hooks'
 import { Header } from '@/components'
 import { removeOverflowHiddenFromBody } from '@/lib'
+import { CatalogMenuButton } from './CatalogMenuButton'
 
 export const CatalogMenu = () => {
   const catalogMenuIsOpen = useUnit($catalogMenuIsOpen)
@@ -18,6 +19,7 @@ export const CatalogMenu = () => {
     2,
     catalogMenuIsOpen
   )
+  const isMedia450 = useMediaQuery(640)
 
   const handleShowClothList = () => {
     setIsShowClothList(true)
@@ -103,8 +105,9 @@ export const CatalogMenu = () => {
       <AnimatePresence>
         {catalogMenuIsOpen && (
           <motion.aside
+            className='catalog-menu__aside'
             initial={{ width: 0 }}
-            animate={{ width: 300 }}
+            animate={{ width: '100%' }}
             exit={{ width: 0, transition: { delay: 0.7, duration: 0.3 } }}
           >
             <div className='catalog-menu__header'>
@@ -133,6 +136,48 @@ export const CatalogMenu = () => {
               >
                 {translations[lang].main_menu.catalog}
               </motion.h2>
+              <ul className='list-reset catalog-menu__list'>
+                {items.map(({ id, name, items, handler }) => {
+                  const buttonProps = (isActive: boolean) => ({
+                    handler: handler as VoidFunction,
+                    name,
+                    isActive,
+                  })
+
+                  return (
+                    <motion.li
+                      key={id}
+                      variants={itemVariants}
+                      className='catalog-menu__list__item'
+                    >
+                      {!isMedia450 && (
+                        <>
+                          {id === 1 && (
+                            <CatalogMenuButton
+                              {...buttonProps(isShowClothList)}
+                            />
+                          )}
+                          {id === 2 && (
+                            <CatalogMenuButton
+                              {...buttonProps(isShowAccessoriesList)}
+                            />
+                          )}
+                          {id === 3 && (
+                            <CatalogMenuButton
+                              {...buttonProps(isShowSouvenirsList)}
+                            />
+                          )}
+                          {id === 4 && (
+                            <CatalogMenuButton
+                              {...buttonProps(isShowOfficeList)}
+                            />
+                          )}
+                        </>
+                      )}
+                    </motion.li>
+                  )
+                })}
+              </ul>
             </motion.div>
           </motion.aside>
         )}
