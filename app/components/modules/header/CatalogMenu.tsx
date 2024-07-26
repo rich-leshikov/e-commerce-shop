@@ -4,9 +4,14 @@ import { useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { $catalogMenuIsOpen, closeCatalogMenu } from '@/context'
 import { useLang, useMediaQuery, useMenuAnimation } from '@/hooks'
-import { Header } from '@/components'
+import {
+  Accordion,
+  CatalogMenuButton,
+  CatalogMenuList,
+  Header,
+} from '@/components'
 import { removeOverflowHiddenFromBody } from '@/lib'
-import { CatalogMenuButton } from './CatalogMenuButton'
+import Link from 'next/link'
 
 export const CatalogMenu = () => {
   const catalogMenuIsOpen = useUnit($catalogMenuIsOpen)
@@ -19,7 +24,7 @@ export const CatalogMenu = () => {
     2,
     catalogMenuIsOpen
   )
-  const isMedia450 = useMediaQuery(640)
+  const isMedia450 = useMediaQuery(450)
 
   const handleShowClothList = () => {
     setIsShowClothList(true)
@@ -144,6 +149,11 @@ export const CatalogMenu = () => {
                     isActive,
                   })
 
+                  const isCurrentList = (
+                    showList: boolean,
+                    currentId: number
+                  ) => showList && id === currentId
+
                   return (
                     <motion.li
                       key={id}
@@ -173,6 +183,44 @@ export const CatalogMenu = () => {
                             />
                           )}
                         </>
+                      )}
+                      {!isMedia450 && (
+                        <AnimatePresence>
+                          {isCurrentList(isShowClothList, 1) && (
+                            <CatalogMenuList items={items} />
+                          )}
+                          {isCurrentList(isShowAccessoriesList, 2) && (
+                            <CatalogMenuList items={items} />
+                          )}
+                          {isCurrentList(isShowSouvenirsList, 3) && (
+                            <CatalogMenuList items={items} />
+                          )}
+                          {isCurrentList(isShowOfficeList, 4) && (
+                            <CatalogMenuList items={items} />
+                          )}
+                        </AnimatePresence>
+                      )}
+                      {isMedia450 && (
+                        <Accordion
+                          title={name}
+                          titleClass='btn-reset nav-menu__accordion__item__title'
+                        >
+                          <ul className='list-reset catalog__accordion__list'>
+                            {items.map((title, i) => (
+                              <li
+                                key={i}
+                                className='catalog__accordion__list__item'
+                              >
+                                <Link
+                                  href='/catalog'
+                                  className='nav-menu__accordion__item__list__item__link'
+                                >
+                                  {title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </Accordion>
                       )}
                     </motion.li>
                   )
