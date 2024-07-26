@@ -121,6 +121,10 @@
 }
 
 @media (max-width: 800px) {
+  .overflow-hidden {
+    padding-right: 0;
+  }
+
   .header__logo {
     left: 15px;
     transform: translateX(0);
