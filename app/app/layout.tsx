@@ -8,6 +8,7 @@ import './global-styles/globals.css'
 import './global-styles/header.css'
 import './global-styles/menu.css'
 import './global-styles/mobile-navbar.css'
+import './global-styles/search-modal.css'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
