@@ -1,20 +1,31 @@
 'use client'
 import Link from 'next/link'
+import { useUnit } from 'effector-react'
 import { Logo, Menu } from '@/components'
-import { openMenu } from '@/context'
+import { $searchModal, openMenu, openSearchModal } from '@/context'
 import { useLang } from '@/hooks'
-import { addOverflowHiddenToBody } from '@/lib'
+import { addOverflowHiddenToBody, handleCloseSearchModal } from '@/lib'
 
 export const Header = () => {
   const { lang, translations } = useLang()
+  const searchModal = useUnit($searchModal)
 
   const handleOpenMenu = () => {
     addOverflowHiddenToBody()
     openMenu()
   }
 
+  const handleOpenSearchModal = () => {
+    openSearchModal()
+    addOverflowHiddenToBody()
+  }
+
   return (
     <header className='header'>
+      <div
+        className={`header__search-overlay ${searchModal ? 'overlay-active' : ''}`}
+        onClick={handleCloseSearchModal}
+      />
       <div className='container header__container'>
         <button className='btn-reset header__burger' onClick={handleOpenMenu}>
           {translations[lang].header.menu_btn}
@@ -25,7 +36,10 @@ export const Header = () => {
         </div>
         <ul className='header__links list-reset'>
           <li className='header__links__item'>
-            <button className='btn-reset header__links__item__btn header__links__item__btn--search' />
+            <button
+              className='btn-reset header__links__item__btn header__links__item__btn--search'
+              onClick={handleOpenSearchModal}
+            />
           </li>
           <li className='header__links__item'>
             <Link
