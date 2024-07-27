@@ -27,12 +27,6 @@
   right: 0;
 }
 
-.catalog-menu__bg {
-  position: absolute;
-  right: 0;
-  top: 90px;
-}
-
 .catalog-menu__close {
   position: absolute;
   width: 24px;
@@ -51,9 +45,10 @@
   margin-bottom: 32px;
 }
 
-.catalog-menu__list ul {
+ul.catalog-menu__list {
   top: 0;
   padding-left: 20px;
+  min-height: 90vh;
 }
 
 .catalog-menu__list__item {
