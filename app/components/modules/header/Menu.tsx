@@ -7,9 +7,13 @@ import { useLang, useMediaQuery } from '@/hooks'
 import { AllowedLangs } from '@/constants'
 import { $menuIsOpen, closeMenu, setLang } from '@/context'
 import { removeOverflowHiddenFromBody } from '@/lib'
-import { Accordion, Logo, MenuLinkItem } from '@/components'
-import { BuyersListItems } from './BuyersListItems'
-import { ContactsListItems } from './ContactsListItems'
+import {
+  Accordion,
+  BuyersListItems,
+  ContactsListItems,
+  Logo,
+  MenuLinkItem,
+} from '@/components'
 
 export const Menu = () => {
   const [showCatalogList, setShowCatalogList] = useState(false)
