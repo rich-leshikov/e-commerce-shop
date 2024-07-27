@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { Logo, Menu } from '@/components'
+import { CartPopup, Logo, Menu } from '@/components'
 import { openMenu, openSearchModal } from '@/context'
 import { useLang } from '@/hooks'
 import { addOverflowHiddenToBody } from '@/lib'
@@ -48,10 +48,7 @@ export const Header = () => {
             />
           </li>
           <li className='header__links__item'>
-            <Link
-              className='header__links__item__btn header__links__item__btn--cart'
-              href='/cart'
-            />
+            <CartPopup />
           </li>
           <li className='header__links__item header__links__item--profile'>
             <Link
