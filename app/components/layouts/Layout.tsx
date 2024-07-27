@@ -2,7 +2,7 @@
 import { FC, ReactNode } from 'react'
 import { useUnit } from 'effector-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Header, MobileNavbar, SearchModal } from '@/components'
+import { Footer, Header, MobileNavbar, SearchModal } from '@/components'
 import { useMediaQuery } from '@/hooks'
 import { $searchModal } from '@/context'
 import { handleCloseSearchModal } from '@/lib'
@@ -35,7 +35,7 @@ export const Layout: FC<Props> = ({ children }) => {
         className={`header__search-overlay ${searchModal ? 'overlay-active' : ''}`}
         onClick={handleCloseSearchModal}
       />
-      <div className='footer' />
+      <Footer />
     </>
   )
 }
