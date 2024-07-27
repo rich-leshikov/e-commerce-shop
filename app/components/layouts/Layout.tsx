@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Header, MobileNavbar, SearchModal } from '@/components'
 import { useMediaQuery } from '@/hooks'
 import { $searchModal } from '@/context'
+import { handleCloseSearchModal } from '@/lib'
 
 type Props = {
   children: ReactNode
@@ -22,7 +23,7 @@ export const Layout: FC<Props> = ({ children }) => {
       <AnimatePresence>
         {searchModal && (
           <motion.div
-            initial={{ opacity: 0, zIndex: 3 }}
+            initial={{ opacity: 0, zIndex: 102 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
@@ -30,6 +31,10 @@ export const Layout: FC<Props> = ({ children }) => {
           </motion.div>
         )}
       </AnimatePresence>
+      <div
+        className={`header__search-overlay ${searchModal ? 'overlay-active' : ''}`}
+        onClick={handleCloseSearchModal}
+      />
       <div className='footer' />
     </>
   )
