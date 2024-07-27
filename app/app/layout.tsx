@@ -10,6 +10,7 @@ import './global-styles/menu.css'
 import './global-styles/mobile-navbar.css'
 import './global-styles/search-modal.css'
 import './global-styles/cart-popup.css'
+import './global-styles/footer.css'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
