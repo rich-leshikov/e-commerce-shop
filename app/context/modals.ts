@@ -6,6 +6,8 @@ export const openMenu = modals.createEvent()
 export const closeMenu = modals.createEvent()
 export const openCatalogMenu = modals.createEvent()
 export const closeCatalogMenu = modals.createEvent()
+export const openSearchMenu = modals.createEvent()
+export const closeSearchMenu = modals.createEvent()
 
 export const $menuIsOpen = modals
   .createStore(false)
@@ -16,3 +18,8 @@ export const $catalogMenuIsOpen = modals
   .createStore(false)
   .on(openCatalogMenu, () => true)
   .on(closeCatalogMenu, () => false)
+
+export const $searchModal = modals
+  .createStore(false)
+  .on(openSearchMenu, () => true)
+  .on(closeSearchMenu, () => false)
