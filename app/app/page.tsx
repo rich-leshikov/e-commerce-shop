@@ -1,7 +1,9 @@
+import { MainPage } from '@/components/templates/main-page/MainPage'
+
 export default function Home() {
   return (
-    <main className={''}>
-      <h1>Page</h1>
-    </main>
+    <>
+      <MainPage />
+    </>
   )
 }
