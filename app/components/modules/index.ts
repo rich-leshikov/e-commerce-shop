@@ -1,4 +1,5 @@
 export * from './accordion'
 export * from './footer'
 export * from './header'
+export * from './main-page'
 export * from './mobile-navbar'
