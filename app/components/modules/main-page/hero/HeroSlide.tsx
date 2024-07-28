@@ -8,7 +8,7 @@ import styles from '@/styles/main-page/index.module.scss'
 
 export const HeroSlide = ({ slide }: { slide: IHeroSlide }) => (
   <>
-    <Link href='/catalog' className={styles.hero__slide__plus} />
+    <Link href='/catalog' className='hero-slide-plus' />
     <Image
       src={slide.image}
       alt={slide.title}
