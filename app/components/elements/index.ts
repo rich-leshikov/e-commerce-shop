@@ -1,1 +1,2 @@
-export * from './logo'
+export * from './all-link/AllLink'
+export * from './logo/Logo'
