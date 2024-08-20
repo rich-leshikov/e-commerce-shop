@@ -9,6 +9,7 @@ export const AllLink = () => {
 
   return (
     <Link href='/catalog' className={styles.all}>
+      <span />
       {translations[lang].common.all_link}
     </Link>
   )

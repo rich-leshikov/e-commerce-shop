@@ -1,4 +1,6 @@
 'use client'
+import Link from 'next/link'
+import Image from 'next/image'
 import { useImagePreloader, useLang, useMediaQuery } from '@/hooks'
 import { AllLink } from '@/components/elements/all-link/AllLink'
 
@@ -7,8 +9,6 @@ import img1 from '@/public/img/categories-img-1.png'
 import img2 from '@/public/img/categories-img-2.png'
 import img3 from '@/public/img/categories-img-3.png'
 import img4 from '@/public/img/categories-img-4.png'
-import Link from 'next/link'
-import Image from 'next/image'
 
 export const Categories = () => {
   const { lang, translations } = useLang()
@@ -34,7 +34,7 @@ export const Categories = () => {
                   src={img1}
                   alt='Cloth'
                   className='transition-opacity opacity-0 duration'
-                  onLoadingComplete={handleLoadingImageComplete}
+                  onLoad={handleLoadingImageComplete}
                 />
                 <span>{translations[lang].main_page.category_cloth}</span>
               </Link>
@@ -48,7 +48,7 @@ export const Categories = () => {
                       src={img2}
                       alt='Accessories'
                       className='transition-opacity opacity-0 duration'
-                      onLoadingComplete={handleLoadingImageComplete}
+                      onLoad={handleLoadingImageComplete}
                     />
                     <span>
                       {translations[lang].main_page.category_accessories}
@@ -62,7 +62,7 @@ export const Categories = () => {
                       src={img3}
                       alt='Souvenirs'
                       className='transition-opacity opacity-0 duration'
-                      onLoadingComplete={handleLoadingImageComplete}
+                      onLoad={handleLoadingImageComplete}
                     />
                     <span>
                       {translations[lang].main_page.category_souvenirs}
@@ -77,7 +77,7 @@ export const Categories = () => {
                     src={img4}
                     alt='Office'
                     className='transition-opacity opacity-0 duration'
-                    onLoadingComplete={handleLoadingImageComplete}
+                    onLoad={handleLoadingImageComplete}
                   />
                   <span>{translations[lang].main_page.category_office}</span>
                 </Link>
