@@ -9,12 +9,28 @@ import img1 from '@/public/img/categories-img-1.png'
 import img2 from '@/public/img/categories-img-2.png'
 import img3 from '@/public/img/categories-img-3.png'
 import img4 from '@/public/img/categories-img-4.png'
+import { MainSlider } from '@/components/modules/main-page/MainSlider'
 
 export const Categories = () => {
   const { lang, translations } = useLang()
   const isMedia490 = useMediaQuery(490)
   const { handleLoadingImageComplete, imgSpinner } = useImagePreloader()
   const imgSpinnerClass = imgSpinner ? styles.img_loading : ''
+
+  const images = [
+    { src: img1, id: 1, title: translations[lang].main_page.category_cloth },
+    {
+      src: img2,
+      id: 2,
+      title: translations[lang].main_page.category_accessories,
+    },
+    {
+      src: img3,
+      id: 3,
+      title: translations[lang].main_page.category_souvenirs,
+    },
+    { src: img4, id: 4, title: translations[lang].main_page.category_office },
+  ]
 
   return (
     <section className={styles.categories}>
@@ -84,6 +100,7 @@ export const Categories = () => {
               </div>
             </>
           )}
+          {isMedia490 && <MainSlider images={images} />}
         </div>
       </div>
     </section>
