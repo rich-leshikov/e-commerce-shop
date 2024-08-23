@@ -13,6 +13,8 @@
     "effector": "^23.2.2",
     "effector-react": "^23.2.1",
     "framer-motion": "^11.3.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.3",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
